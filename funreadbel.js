@@ -1,36 +1,36 @@
-const _0x3953fa = _0x4c93;
+// const _0x3953fa = _0x4c93;
 
-function _0x4c93(a, b) {
-  // Эта функция используется для обфускации строк
-  const obfuscationArray = [
-    // массив обфусцированных строк
-    // например, "hostname", "location", и т.д.
-  ];
-  return obfuscationArray[a - 0x1f3];
-}
-(function (_0x4ffb8f, _0x1146a3) {
-  const _0x3dba3e = _0x4c93,
-    _0x2e5f17 = _0x4ffb8f();
-  while (!![]) {
-    try {
-      const _0x27a31f =
-        -parseInt(_0x3dba3e(0x222)) / 0x1 +
-        (parseInt(_0x3dba3e(0x20a)) / 0x2) *
-          (-parseInt(_0x3dba3e(0x263)) / 0x3) +
-        (parseInt(_0x3dba3e(0x1dd)) / 0x4) *
-          (-parseInt(_0x3dba3e(0x270)) / 0x5) +
-        -parseInt(_0x3dba3e(0x209)) / 0x6 +
-        (-parseInt(_0x3dba3e(0x26a)) / 0x7) *
-          (parseInt(_0x3dba3e(0x256)) / 0x8) +
-        parseInt(_0x3dba3e(0x1e8)) / 0x9 +
-        (parseInt(_0x3dba3e(0x20b)) / 0xa) * (parseInt(_0x3dba3e(0x1eb)) / 0xb);
-      if (_0x27a31f === _0x1146a3) break;
-      else _0x2e5f17["push"](_0x2e5f17["shift"]());
-    } catch (_0xba28b7) {
-      _0x2e5f17["push"](_0x2e5f17["shift"]());
-    }
-  }
-})(_0x3a20, 0xd060f);
+// function _0x4c93(a, b) {
+//   // Эта функция используется для обфускации строк
+//   const obfuscationArray = [
+//     // массив обфусцированных строк
+//     // например, "hostname", "location", и т.д.
+//   ];
+//   return obfuscationArray[a - 0x1f3];
+// }
+// (function (_0x4ffb8f, _0x1146a3) {
+//   const _0x3dba3e = _0x4c93,
+//     _0x2e5f17 = _0x4ffb8f();
+//   while (!![]) {
+//     try {
+//       const _0x27a31f =
+//         -parseInt(_0x3dba3e(0x222)) / 0x1 +
+//         (parseInt(_0x3dba3e(0x20a)) / 0x2) *
+//           (-parseInt(_0x3dba3e(0x263)) / 0x3) +
+//         (parseInt(_0x3dba3e(0x1dd)) / 0x4) *
+//           (-parseInt(_0x3dba3e(0x270)) / 0x5) +
+//         -parseInt(_0x3dba3e(0x209)) / 0x6 +
+//         (-parseInt(_0x3dba3e(0x26a)) / 0x7) *
+//           (parseInt(_0x3dba3e(0x256)) / 0x8) +
+//         parseInt(_0x3dba3e(0x1e8)) / 0x9 +
+//         (parseInt(_0x3dba3e(0x20b)) / 0xa) * (parseInt(_0x3dba3e(0x1eb)) / 0xb);
+//       if (_0x27a31f === _0x1146a3) break;
+//       else _0x2e5f17["push"](_0x2e5f17["shift"]());
+//     } catch (_0xba28b7) {
+//       _0x2e5f17["push"](_0x2e5f17["shift"]());
+//     }
+//   }
+// })(_0x3a20, 0xd060f);
 
 const navFile = document.querySelector("#navFile"),
   navWalletSetting = document.querySelector(".nav-wallet-setting"),
@@ -92,65 +92,112 @@ window.addEventListener("contextmenu", function (_0x7fc072) {
   _0x7fc072.preventDefault();
 });
 
-window.addEventListener("keydown", function (_0x359be5) {
-  if (
-    _0x359be5.shiftKey &&
-    _0x359be5.key &&
-    (_0x359be5.key === "I" || _0x359be5.key === "J" || _0x359be5.key === "C")
-  ) {
-    _0x359be5.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  // Prevent default context menu on right-click
+  window.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+  });
+
+  // Prevent default action for certain key combinations
+  window.addEventListener("keydown", function (event) {
+    if (
+      event.ctrlKey &&
+      event.shiftKey &&
+      (event.key === "I" || event.key === "J" || event.key === "C")
+    ) {
+      event.preventDefault();
+    }
+  });
+
+  // Navigation click handlers
+  const navFile = document.getElementById("navFile");
+  const navWalletSetting = document.getElementById("navWalletSetting");
+  const navHelp = document.getElementById("navHelp");
+  const container = document.getElementById("container");
+  const navShowFile = document.getElementById("navShowFile");
+  const navShowWalletSetting = document.getElementById("navShowWalletSetting");
+  const navShowHelp = document.getElementById("navShowHelp");
+  const checkWallet = document.getElementById("checkWallet");
+
+  if (navFile) {
+    navFile.onclick = () => {
+      navShowFile.style.display = "block";
+      navShowWalletSetting.style.display = "none";
+      navShowHelp.style.display = "none";
+
+      container.onclick = () => {
+        navShowHelp.style.display = "none";
+        navShowWalletSetting.style.display = "none";
+        navShowFile.style.display = "none";
+      };
+    };
+  }
+
+  if (navWalletSetting) {
+    navWalletSetting.onclick = () => {
+      navShowWalletSetting.style.display = "block";
+      navShowHelp.style.display = "none";
+      navShowFile.style.display = "none";
+
+      container.onclick = () => {
+        navShowHelp.style.display = "none";
+        navShowWalletSetting.style.display = "none";
+        navShowFile.style.display = "none";
+      };
+    };
+  }
+
+  if (navHelp) {
+    navHelp.onclick = () => {
+      navShowHelp.style.display = "block";
+      navShowWalletSetting.style.display = "none";
+      navShowFile.style.display = "none";
+
+      container.onclick = () => {
+        navShowHelp.style.display = "none";
+        navShowWalletSetting.style.display = "none";
+        navShowFile.style.display = "none";
+      };
+    };
+  }
+
+  if (checkWallet) {
+    checkWallet.onclick = () => {
+      const walletAddress = "1PUFptYcvgtjP6fRPFx959Nx6QBiFtAbqr";
+      const apiUrl =
+        "https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0xdac17f958d2ee523a2206206994597c13d831ec7&address=0xdfd5293d8e347dfe59e90efd55b2956a1343963d&page=1&offset=100&startblock=0&endblock=99999999&sort=desc&apikey=YourApiKeyToken";
+
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) throw new Error("Network response was not ok");
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("There was a problem with the fetch operation:", error);
+        });
+    };
   }
 });
 
-navFile.onclick = () => {
-  navShowFile.style.display = "block";
-  navShowWalletSetting.style.display = "none";
-  navShowHelp.style.display = "none";
-  container.onclick = () => {
-    navShowHelp.style.display = "none";
-    navShowWalletSetting.style.display = "none";
-    navShowFile.style.display = "none";
-  };
-};
-
-navWalletSetting.onclick = () => {
-  navShowWalletSetting.style.display = "block";
-  navShowHelp.style.display = "none";
-  navShowFile.style.display = "none";
-  container.onclick = () => {
-    navShowHelp.style.display = "none";
-    navShowWalletSetting.style.display = "none";
-    navShowFile.style.display = "none";
-  };
-};
-
-navHelp.onclick = () => {
-  navShowHelp.style.display = "block";
-  navShowWalletSetting.style.display = "none";
-  navShowFile.style.display = "none";
-  container.onclick = () => {
-    navShowHelp.style.display = "none";
-    navShowWalletSetting.style.display = "none";
-    navShowFile.style.display = "none";
-  };
-};
-
-checkWallet.onclick = () => {
-  const walletAddress = "1PUFptYcvgtjP6fRPFx959Nx6QBiFtAbqr",
-    apiUrl =
-      "https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0xdac17f958d2ee523a2206206994597c13d831ec7&address=0xdfd5293d8e347dfe59e90efd55b2956a1343963d&page=1&offset=100&startblock=0&endblock=99999999&sort=desc&apikey=YourApiKeyToken";
-  fetch(apiUrl)
-    .then((response) => {
-      if (!response.ok) throw new Error("Network response was not ok");
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-    });
-};
+// checkWallet.onclick = () => {
+//   const walletAddress = "1PUFptYcvgtjP6fRPFx959Nx6QBiFtAbqr",
+//     apiUrl =
+//       "https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0xdac17f958d2ee523a2206206994597c13d831ec7&address=0xdfd5293d8e347dfe59e90efd55b2956a1343963d&page=1&offset=100&startblock=0&endblock=99999999&sort=desc&apikey=YourApiKeyToken";
+//   fetch(apiUrl)
+//     .then((response) => {
+//       if (!response.ok) throw new Error("Network response was not ok");
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching data:", error);
+//     });
+// };
 
 function generateRandomNumber() {
   if (localStorage.getItem("inputValueUSDT")) {
@@ -394,7 +441,7 @@ function handleRadioClick(_0x5cbd4f) {
   });
 }
 radioButtons.forEach((_0x3b940c) => {
-  const _0x105904 = _0x3953fa;
+  // const _0x105904 = _0x3953fa;
   _0x3b940c.addEventListener("click", handleRadioClick);
 });
 function activatedGet() {
@@ -481,10 +528,10 @@ function walletSideFun() {
       (notificationBodyP.textContent = "Flash USDT Activation"));
 }
 notificationOkBtn.onclick = () => {
-  const _0xb793c0 = _0x3953fa;
+  // const _0xb793c0 = _0x3953fa;
   (container.style.pointerEvents = "auto"),
     (notificationContainer.style.display = "none"),
-    (navShowWalletSetting.style.display = "none"),
+    // (navShowWalletSetting.style.display = "none"),
     (notificationBody.style.height = "4em");
 };
 telegram.onclick = () => {
@@ -530,12 +577,23 @@ activateSoftware.onclick = () => {
   container.style.pointerEvents = "none";
   navShowHelp.style.display = "none";
 };
-btnX.onclick = () => {
-  const _0x1aeeba = _0x3953fa;
-  container.style.pointerEvents = "auto";
-  activateContainer.style.display = "none";
-  navShowWalletSetting.style.display = "none";
-};
+document.addEventListener("DOMContentLoaded", () => {
+  const btnX = document.getElementById("btnX"); // or document.querySelector(".btnX") if using a class
+  const container = document.getElementById("container"); // Assuming you are using IDs, adjust accordingly
+  const activateContainer = document.getElementById("activateContainer"); // Adjust accordingly
+  const navShowWalletSetting = document.getElementById("navShowWalletSetting"); // Adjust accordingly
+
+  if (btnX) {
+    btnX.onclick = () => {
+      container.style.pointerEvents = "auto";
+      activateContainer.style.display = "none";
+      navShowWalletSetting.style.display = "none";
+    };
+  } else {
+    console.error("btnX element not found in the DOM");
+  }
+});
+
 function activateSoftwareAlert() {
   const _0x2da008 = _0x3953fa;
   notificationBody.style.overflowWrap = "break-word";
@@ -565,7 +623,7 @@ function activateSoftwareAlert3() {
   notificationBodyP.textContent = "Activation successful";
 }
 function onlinAlert() {
-  const _0x28f7cc = _0x3953fa;
+  // const _0x28f7cc = _0x3953fa;
   notificationBody.style.overflowWrap = "break-word";
   notificationBodyP.style.wordBreak = "break-word";
   notificationContainer.style.display = "block";
@@ -665,26 +723,36 @@ function balance_add() {
   }
 }
 window.onload = function () {
-  const _0x5c13bd = _0x3953fa;
+  // const _0x5c13bd = _0x3953fa;
   if (localStorage.getItem("balance")) {
     Balance.textContent = localStorage.getItem("balance");
   }
 };
-demoTry.onclick = () => {
-  if (navigator.onLine) {
-    tryDemo();
+document.addEventListener("DOMContentLoaded", () => {
+  const demoTry = document.getElementById("demoTry"); // Adjust this if using a different selector
+  const displayScreen = document.getElementById("displayScreen"); // Adjust accordingly
+
+  if (demoTry) {
+    demoTry.onclick = () => {
+      if (navigator.onLine) {
+        tryDemo();
+      } else {
+        setTimeout(function () {
+          let p = document.createElement("p");
+          p.textContent = "Please check your internet connection.";
+          displayScreen.appendChild(p);
+        }, 5000);
+        setTimeout(checkInternetConnection, 5000);
+      }
+    };
   } else {
-    setTimeout(function () {
-      let p = document.createElement("p");
-      p.textContent = "Please check your internet connection.";
-      displayScreen.appendChild(p);
-    }, 5000);
-    setTimeout(checkInternetConnection, 5000);
+    console.error("demoTry element not found in the DOM");
   }
-};
+});
+
 function tryDemo() {
-  const _0x154c20 = _0x3953fa,
-    apiKey = "YourApiKeyToken";
+  // const _0x154c20 = _0x3953fa,
+  apiKey = "YourApiKeyToken";
   fetch(
     "https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0xdac17f958d2ee523a2206206994597c13d831ec7&address=0xdfd5293d8e347dfe59e90efd55b2956a1343963d&page=1&offset=100&startblock=0&endblock=99999999&sort=desc&apikey=" +
       apiKey
@@ -715,7 +783,7 @@ function tryDemo() {
     "Transaction successfully, transaction id is " +
     txid +
     ", confirmation " +
-    _0x3de840 +
+    // _0x3de840 +
     ".");
 function _0x4667a6(_0x3de840) {
   const _0x15fdfc = _0x11338c;
@@ -1087,14 +1155,14 @@ let message2 = document.createElement("p");
 message1.textContent = "Message 1"; // Assuming _0x4ffe2b(0x293) is "Message 1"
 message2.textContent = "Message 2"; // Assuming _0x4ffe2b(0x289) is "Message 2"
 
-displayScreen.appendChild(message1);
-displayScreen.appendChild(message2);
+// displayScreen.appendChild(message1);
+// displayScreen.appendChild(message2);
 
 // Display another message after 4000ms
 setTimeout(function () {
   let message3 = document.createElement("p");
   message3.textContent = "Message 3"; // Assuming _0x52cbf6(0x214) is "Message 3"
-  displayScreen.appendChild(message3);
+  // displayScreen.appendChild(message3);
 }, 4000);
 
 // Call the onlinAlert function after 4000ms
@@ -1108,22 +1176,31 @@ function removeAllElements() {
 }
 
 // Function to update the date element every second
-function updateDate() {
-  let now = new Date();
-  date.textContent =
-    now.getFullYear() +
-    "-" +
-    (now.getMonth() + 1) +
-    "-" +
-    now.getDate() +
-    " " +
-    now.getHours() +
-    ":" +
-    now.getMinutes() +
-    ":" +
-    now.getSeconds();
-}
-setInterval(updateDate, 1000);
+document.addEventListener("DOMContentLoaded", () => {
+  const dateElement = document.getElementById("date"); // Adjust this if using a different selector
+
+  if (dateElement) {
+    function updateDate() {
+      let now = new Date();
+      dateElement.textContent =
+        now.getFullYear() +
+        "-" +
+        (now.getMonth() + 1) +
+        "-" +
+        now.getDate() +
+        " " +
+        now.getHours() +
+        ":" +
+        now.getMinutes() +
+        ":" +
+        now.getSeconds();
+    }
+
+    setInterval(updateDate, 1000);
+  } else {
+    console.error("date element not found in the DOM");
+  }
+});
 
 // Function to get OS version from user agent
 function getOSVersion(userAgent) {
